@@ -1,3 +1,11 @@
+import os
+from pathlib import Path
+
+# Configurações
+BASE_DIR = Path.cwd()
+
+# Conteúdo CORRIGIDO da página Sobre (Sem a propriedade 'asChild' que causa o erro)
+ABOUT_PAGE_FIXED = """
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Cpu, Rocket, Zap, Code2, CheckCircle2 } from "lucide-react"
@@ -100,3 +108,34 @@ export default function AboutPage() {
     </div>
   )
 }
+"""
+
+def main():
+    print("🚑 Iniciando Correção do Erro de Deploy...")
+    
+    if not (BASE_DIR / "package.json").exists():
+        print("❌ ERRO: Execute este script na pasta raiz do projeto!")
+        return
+
+    # Reescrever o arquivo problemático
+    file_path = BASE_DIR / "src/app/(site)/about/page.tsx"
+    
+    # Garante que o diretório existe (por segurança)
+    file_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    print(f"🛠️ Corrigindo {file_path}...")
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(ABOUT_PAGE_FIXED.strip())
+
+    print("\n" + "="*50)
+    print("✅ CÓDIGO CORRIGIDO COM SUCESSO!")
+    print("="*50)
+    print("Agora, para o deploy funcionar, você PRECISA enviar essa correção para o GitHub.")
+    print("Execute os comandos abaixo no seu terminal:")
+    print("1. git add .")
+    print("2. git commit -m \"Fix: Remove asChild prop causing build error\"")
+    print("3. git push")
+    print("="*50)
+
+if __name__ == "__main__":
+    main()
