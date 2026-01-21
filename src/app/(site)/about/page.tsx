@@ -21,20 +21,15 @@ export default function AboutPage() {
 
       {/* Main Content */}
       <div className="grid md:grid-cols-2 gap-12 items-start">
-        {/* Text Column (A História) */}
+        {/* Text Column */}
         <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
           <p>
             Bem-vindo ao <strong>Blog High Performance</strong>.
           </p>
           <p>
             Nossa missão é simples: <strong>filtrar o ruído</strong> do mercado de tecnologia.
-            Não fazemos reviews superficiais baseados apenas em especificações de caixa. 
-            Testamos monitores, teclados e ferramentas com a mentalidade de um engenheiro: 
-            focando em métricas, durabilidade e, principalmente, no <strong>retorno sobre o investimento (ROI)</strong>.
-          </p>
-          <p>
-            Se você quer saber se aquele monitor ultrawide vai realmente aumentar sua
-            produtividade no VS Code ou se é apenas marketing, você está no lugar certo.
+            Não fazemos reviews superficiais. Testamos monitores, teclados e ferramentas 
+            com a mentalidade de um engenheiro, focando no <strong>retorno sobre o investimento (ROI)</strong>.
           </p>
 
           <h3 className="text-2xl font-bold text-foreground mt-8 mb-4 flex items-center gap-2">
@@ -47,16 +42,12 @@ export default function AboutPage() {
             </li>
             <li className="flex gap-3 items-center">
               <CheckCircle2 className="w-5 h-5 text-primary" />
-              <span>Performance acima de estética (mas amamos um bom design).</span>
-            </li>
-            <li className="flex gap-3 items-center">
-              <CheckCircle2 className="w-5 h-5 text-primary" />
-              <span>Dados reais superam opiniões vazias.</span>
+              <span>Performance acima de estética.</span>
             </li>
           </ul>
         </div>
 
-        {/* Tech Stack / Visual Column (A Autoridade Técnica) */}
+        {/* Tech Stack Column */}
         <div className="space-y-8">
           <div className="rounded-xl border bg-card text-card-foreground p-6 shadow-sm">
             <h3 className="font-bold text-xl mb-4 flex items-center gap-2">
@@ -65,7 +56,7 @@ export default function AboutPage() {
             </h3>
             <p className="text-sm text-muted-foreground mb-6">
               Este blog pratica o que prega. Ele foi construído do zero para ser 
-              instantâneo, acessível e escalável.
+              instantâneo e escalável.
             </p>
             <div className="grid grid-cols-2 gap-4">
               <div className="flex items-center gap-2 p-2 rounded-md bg-muted/50 text-sm font-medium">
@@ -74,21 +65,15 @@ export default function AboutPage() {
               <div className="flex items-center gap-2 p-2 rounded-md bg-muted/50 text-sm font-medium">
                 <Cpu className="w-4 h-4 text-foreground" /> Tailwind CSS
               </div>
-              <div className="flex items-center gap-2 p-2 rounded-md bg-muted/50 text-sm font-medium">
-                <Zap className="w-4 h-4 text-foreground" /> Turbopack
-              </div>
-              <div className="flex items-center gap-2 p-2 rounded-md bg-muted/50 text-sm font-medium">
-                <Code2 className="w-4 h-4 text-foreground" /> MDX Engine
-              </div>
             </div>
           </div>
 
           <div className="rounded-xl border bg-muted/30 p-6">
-            <h3 className="font-bold mb-2">Contato & Parcerias</h3>
+            <h3 className="font-bold mb-2">Contato</h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Tem uma sugestão de produto para review ou encontrou um bug no código?
+              Encontrou um bug ou quer sugerir um produto?
             </p>
-            {/* CORREÇÃO AQUI: Removemos 'asChild' e envolvemos o botão no Link corretamente */}
+            {/* O ERRO ESTAVA AQUI EMBAIXO - JÁ CORRIGIDO NESTA VERSÃO */}
             <Link href="mailto:contato@seublog.com" className="w-full block">
               <Button className="w-full">
                 Fale Conosco <ArrowRight className="ml-2 w-4 h-4" />
