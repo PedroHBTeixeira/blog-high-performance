@@ -1,3 +1,11 @@
+import os
+from pathlib import Path
+
+# Configurações
+BASE_DIR = Path.cwd()
+
+# Conteúdo CORRIGIDO da página Sobre (Sem o 'asChild')
+ABOUT_PAGE_FIXED = """
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Cpu, Rocket, Zap, Code2, CheckCircle2 } from "lucide-react"
@@ -100,3 +108,29 @@ export default function AboutPage() {
     </div>
   )
 }
+"""
+
+def main():
+    print("🚑 Aplicando Correção Crítica de Deploy...")
+    
+    if not (BASE_DIR / "package.json").exists():
+        print("❌ ERRO: Rode na pasta do projeto!")
+        return
+
+    # Reescrever o arquivo problemático
+    file_path = BASE_DIR / "src/app/(site)/about/page.tsx"
+    print(f"🛠️ Corrigindo {file_path}...")
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(ABOUT_PAGE_FIXED.strip())
+
+    print("\n" + "="*50)
+    print("✅ ERRO CORRIGIDO!")
+    print("="*50)
+    print("Agora envie a correção para o GitHub:")
+    print("1. git add .")
+    print("2. git commit -m 'Fix: Remove asChild prop from Button'")
+    print("3. git push")
+    print("="*50)
+
+if __name__ == "__main__":
+    main()
